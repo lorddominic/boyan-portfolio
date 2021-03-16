@@ -8,9 +8,11 @@ export default function Home() {
         alt="Space Cat"
         className="absolute object-cover w-full h-full"
       />
-      <section className="relative flex justify-center min-h-screen pt-12 lg:pt-64 px-8">
+      <section className="relative flex justify-center min-h-screen pt-12 lg:pt-24 px-8">
         <h1 className="text-6xl text-green-100 font-bold cursive leading-none lg:leading-snug home-name">
           Hi, I'm Dominic
+          <br />
+          Software Engineer
         </h1>
       </section>
     </main>

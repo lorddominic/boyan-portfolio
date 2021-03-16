@@ -52,7 +52,7 @@ export default function NavBar() {
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
-            url="https://www.youtube.com/watch?v=wke4O8JqoNo"
+            url="https://www.instagram.com/dorkandjockx/"
             className="mr-4"
             target="_blank"
             fgColor="#fff"

@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source) {
+  return builder.image(source);
+}
+
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
 
@@ -7,13 +14,14 @@ export default function Project() {
     sanityClient
       .fetch(
         `*[_type == "project"]{
-            title,
-            date,
-            place,
-            description,
-            projectType,
-            link,
-            tags
+          title,
+          date,
+          place,
+          description,
+          projectType,
+          backgroundPic,
+          link,
+          tags
       }`
       )
       .then((data) => setProjectData(data))
@@ -30,8 +38,16 @@ export default function Project() {
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16">
-                <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
+              <article
+                className="relative rounded-lg shadow-xl bg-white p-16"
+                style={{
+                  backgroundImage: `url(${urlFor(
+                    project.backgroundPic
+                  ).url()})`,
+                  backgroundSize: "cover",
+                }}
+              >
+                <h3 className="text-blue-900 text-3xl font-bold mb-2 hover:text-red-700">
                   <a
                     href={project.link}
                     alt={project.title}
@@ -41,7 +57,7 @@ export default function Project() {
                     {project.title}
                   </a>
                 </h3>
-                <div className="text-gray-500 text-xs space-x-4">
+                <div className="text-red-700 text-xs space-x-4 ">
                   <span>
                     <strong className="font-bold">Finished on</strong>:{" "}
                     {new Date(project.date).toLocaleDateString()}
@@ -54,7 +70,7 @@ export default function Project() {
                     <strong className="font-bold">Type</strong>:{" "}
                     {project.projectType}
                   </span>
-                  <p className="my-6 text-lg text-gray-700 leading-relaxed">
+                  <p className="my-6 text-lg text-gray-800 font-bold leading-relaxed">
                     {project.description}
                   </p>
                   <a
@@ -65,7 +81,7 @@ export default function Project() {
                   >
                     View the Project{" "}
                     <span role="img" aria-label="right pointer">
-                      👉
+                      👉😃
                     </span>
                   </a>
                 </div>

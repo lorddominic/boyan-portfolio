@@ -32,6 +32,10 @@ export default {
       },
     },
     {
+      name: "backgroundPic",
+      type: "image",
+    },
+    {
       name: "link",
       type: "url",
     },
