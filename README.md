@@ -12,5 +12,5 @@ The following image shows a glimpse of my website
 
 ## Contact:
 
-Boyan Xu(Dominic)
-dominictxu1@gmail.com
+Jason Xu
+jasonyanxu123@gmail.com
