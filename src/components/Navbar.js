@@ -38,7 +38,7 @@ export default function NavBar() {
         </nav>
         <div className="inline-flex py-3 px-3 my-6">
           <SocialIcon
-            url="https://www.linkedin.com/in/dominic-xu-6a37a018b/"
+            url="https://www.linkedin.com/in/jason-xu-9b2b9a216/"
             className="mr-4"
             target="_blank"
             fgColor="#fff"
